@@ -19,7 +19,7 @@ class MemeListViewController: DisplayViewController, UITableViewDataSource, UITa
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        self.memeTableView!.reloadData()
+        memeTableView!.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,13 +28,13 @@ class MemeListViewController: DisplayViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
+        return dataSource.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! UITableViewCell
-        let meme = self.dataSource[indexPath.row]
+        let meme = dataSource[indexPath.row]
         
         // Set the name and image
         cell.textLabel?.text = meme.topText
@@ -49,7 +49,7 @@ class MemeListViewController: DisplayViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let meme = self.dataSource[indexPath.row] as Meme
+        let meme = dataSource[indexPath.row] as Meme
         showMeme(meme)
     }
 

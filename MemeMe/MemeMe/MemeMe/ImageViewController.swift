@@ -17,7 +17,7 @@ class ImageViewController: MemeManagerViewController {
         
         var editBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editTapped:")
         leftShareBarButtonItem.enabled = false
-        self.navigationItem.setLeftBarButtonItems([editBarButtonItem], animated: true)
+        navigationItem.setLeftBarButtonItems([editBarButtonItem], animated: true)
         
         imageView.image = currentMeme.memeImage
     }
@@ -28,8 +28,8 @@ class ImageViewController: MemeManagerViewController {
     }
     
     func editTapped(button: UIBarButtonItem!){
-        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorNav") as! MemeEditorViewController
+        let secondViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorNav") as! MemeEditorViewController
         secondViewController.currentMeme = currentMeme
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
 }

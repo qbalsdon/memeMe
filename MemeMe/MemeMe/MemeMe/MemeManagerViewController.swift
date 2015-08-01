@@ -16,11 +16,11 @@ class MemeManagerViewController: UIViewController {
         super.viewDidLoad()
 
         var rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelTapped:")
-        self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
         
         leftShareBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "actionTapped:")
         leftShareBarButtonItem.enabled = false
-        self.navigationItem.setLeftBarButtonItems([leftShareBarButtonItem], animated: true)
+        navigationItem.setLeftBarButtonItems([leftShareBarButtonItem], animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +34,7 @@ class MemeManagerViewController: UIViewController {
         let objectsToShare = [currentMeme.memeImage]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.completionWithItemsHandler = actionCompleted
-        self.presentViewController(activityVC, animated: true, completion: nil)
+        presentViewController(activityVC, animated: true, completion: nil)
     }
     
     func actionCompleted(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, error: NSError!) {
@@ -50,7 +50,7 @@ class MemeManagerViewController: UIViewController {
     }
     
     func close(){
-        if let navController = self.navigationController {
+        if let navController = navigationController {
             navController.popViewControllerAnimated(true)
         }
     }

@@ -19,7 +19,7 @@ class MemeGalleryViewController: DisplayViewController, UICollectionViewDataSour
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        self.memeCollectionView!.reloadData()
+        memeCollectionView!.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,13 +29,13 @@ class MemeGalleryViewController: DisplayViewController, UICollectionViewDataSour
     
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataSource.count
+        return dataSource.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        let memeData = self.dataSource[indexPath.row]
+        let memeData = dataSource[indexPath.row]
         
         // Set the name and image
         cell.memeThumbImageView?.image = memeData.memeImage
@@ -44,7 +44,7 @@ class MemeGalleryViewController: DisplayViewController, UICollectionViewDataSour
     }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let meme = self.dataSource[indexPath.row] as Meme
+        let meme = dataSource[indexPath.row] as Meme
         showMeme(meme)
     }
 }

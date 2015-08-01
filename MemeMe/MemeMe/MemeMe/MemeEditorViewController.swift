@@ -37,7 +37,7 @@ class MemeEditorViewController: MemeManagerViewController, UIImagePickerControll
         
         topText.textAlignment = .Center
         bottomText.textAlignment = .Center
-        self.navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.setToolbarHidden(false, animated: false)
         if (UIImagePickerController.availableMediaTypesForSourceType(UIImagePickerControllerSourceType.Camera) == nil){
             takePictureButton.enabled = false
         }
@@ -52,11 +52,11 @@ class MemeEditorViewController: MemeManagerViewController, UIImagePickerControll
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.subscribeToKeyBoardNotifications()
+        subscribeToKeyBoardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
-        self.unsubscribeToKeyBoardNotifications()
+        unsubscribeToKeyBoardNotifications()
     }
     
     override func actionTapped(sender: AnyObject) {
@@ -74,40 +74,40 @@ class MemeEditorViewController: MemeManagerViewController, UIImagePickerControll
     func generateMemedImage() -> UIImage {
         
         // Hide toolbar and navbar
-        self.navigationController?.setToolbarHidden(true, animated: false)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar
-        self.navigationController?.setToolbarHidden(false, animated: false)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         return memedImage
     }
     
     //MARK: UIImagePickerController delegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         imageToEdit.image = image
         leftShareBarButtonItem.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func getPicture(sourceType: UIImagePickerControllerSourceType){
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = sourceType
-        self.presentViewController(imagePickerController, animated: true, completion: nil)
+        presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
     //MARK:UITextFieldDelegate methods
@@ -139,12 +139,12 @@ class MemeEditorViewController: MemeManagerViewController, UIImagePickerControll
     
     func keyboardWillShow(notification: NSNotification){
         if (activeTextField == bottomText){
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification){
-            self.view.frame.origin.y = 0
+            view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat{

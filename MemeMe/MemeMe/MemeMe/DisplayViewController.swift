@@ -18,12 +18,12 @@ class DisplayViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         var rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addTapped:")
-        self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
+        navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
     }
     
 
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setToolbarHidden(true, animated: false)
         dataSource = (UIApplication.sharedApplication().delegate as! AppDelegate).memeData;
     }
     
@@ -38,14 +38,14 @@ class DisplayViewController: UIViewController {
     }
 
     internal func showMeme(memeToShow: Meme!){
-        secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeViewNav") as! ImageViewController
+        secondViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeViewNav") as! ImageViewController
 
         if (memeToShow == nil){
-            secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorNav") as! MemeEditorViewController
+            secondViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorNav") as! MemeEditorViewController
         }
         
         secondViewController.currentMeme = memeToShow
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
     
 }
