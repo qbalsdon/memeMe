@@ -8,7 +8,6 @@
         <!--Meme Editor View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MemeEditorNav" hidesBottomBarWhenPushed="YES" id="vXZ-lx-hvc" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -70,8 +69,41 @@
                         <outlet property="topText" destination="RR5-VO-TMp" id="jNk-On-yvN"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3984" y="1982"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="vSw-4i-X6t">
+            <objects>
+                <viewController storyboardIdentifier="MemeViewNav" hidesBottomBarWhenPushed="YES" id="exG-dI-b2S" customClass="ImageViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="th8-Sf-6Hc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ci2-yq-d0I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Ro-Xg-eMl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Z5-aA-ySe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Z5-aA-ySe" firstAttribute="leading" secondItem="8Ro-Xg-eMl" secondAttribute="leading" id="1g3-sW-ow9"/>
+                            <constraint firstAttribute="trailing" secondItem="1Z5-aA-ySe" secondAttribute="trailing" id="JrP-ft-m8H"/>
+                            <constraint firstItem="1Z5-aA-ySe" firstAttribute="top" secondItem="8Ro-Xg-eMl" secondAttribute="top" id="kWh-De-ibx"/>
+                            <constraint firstItem="1Z5-aA-ySe" firstAttribute="bottom" secondItem="Ci2-yq-d0I" secondAttribute="top" id="lAC-yA-wbT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1Z5-aA-ySe" id="L8b-qp-nw5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j5O-36-oTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3984" y="2733"/>
         </scene>
         <!--Meme Gallery View Controller-->
         <scene sceneID="RnW-Nb-oqQ">
@@ -201,7 +233,7 @@
                 <tabBarController id="qzI-ZX-KSw" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Hgg-UV-TGa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -11,6 +11,7 @@ import UIKit
 class DisplayViewController: UIViewController {
     
     internal var dataSource: [Meme]!
+    var secondViewController: MemeManagerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,12 @@ class DisplayViewController: UIViewController {
     }
 
     internal func showMeme(memeToShow: Meme!){
-        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorNav") as! MemeEditorViewController
+        secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeViewNav") as! ImageViewController
+
+        if (memeToShow == nil){
+            secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorNav") as! MemeEditorViewController
+        }
+        
         secondViewController.currentMeme = memeToShow
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }

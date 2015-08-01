@@ -8,30 +8,19 @@
 
 import UIKit
 
-class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: MemeManagerViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imageToEdit: UIImageView!
     @IBOutlet weak var takePictureButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     
-    var leftShareBarButtonItem: UIBarButtonItem!
     var activeTextField: UITextField!
-    var currentMeme: Meme!
     
     //MARK: ViewController overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setTabBarVisible(false, animated: true)
         // Do any additional setup after loading the view, typically from a nib.
-        var rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelTapped:")
-        self.navigationItem.setRightBarButtonItems([rightAddBarButtonItem], animated: true)
-        
-        leftShareBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "actionTapped:")
-        leftShareBarButtonItem.enabled = false
-        self.navigationItem.setLeftBarButtonItems([leftShareBarButtonItem], animated: true)
-        
-        //takePictureButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         topText.delegate = self
         bottomText.delegate = self
@@ -49,6 +38,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topText.textAlignment = .Center
         bottomText.textAlignment = .Center
         self.navigationController?.setToolbarHidden(false, animated: false)
+        if (UIImagePickerController.availableMediaTypesForSourceType(UIImagePickerControllerSourceType.Camera) == nil){
+            takePictureButton.enabled = false
+        }
         
         if (currentMeme != nil){
             topText.text = currentMeme.topText
@@ -65,7 +57,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewWillDisappear(animated: Bool) {
         self.unsubscribeToKeyBoardNotifications()
-        //setTabBarVisible(true, animated: true)
+    }
+    
+    override func actionTapped(sender: AnyObject) {
+        saveMeme()
+        super.actionTapped(sender)
     }
     
     //MARK: Model Methods
@@ -166,31 +162,5 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         getPicture(UIImagePickerControllerSourceType.Camera)
     }
     
-    func actionTapped(sender: AnyObject) {
-        saveMeme()
-        
-        let objectsToShare = [currentMeme.memeImage]
-        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        activityVC.completionWithItemsHandler = actionCompleted
-        self.presentViewController(activityVC, animated: true, completion: nil)
-    }
-    
-    func actionCompleted(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, error: NSError!) {
-        // Return if cancelled
-        if (!completed) {
-            return
-        }
-        close()
-    }
-    
-    func cancelTapped(sender: UIBarButtonItem){
-        close()
-    }
-    
-    func close(){
-        if let navController = self.navigationController {
-            navController.popViewControllerAnimated(true)
-        }
-    }
 }
 
