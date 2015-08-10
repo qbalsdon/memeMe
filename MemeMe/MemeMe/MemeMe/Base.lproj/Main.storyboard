@@ -30,14 +30,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KUf-ig-SZJ">
+                                <rect key="frame" x="290" y="268" width="20" height="20"/>
+                                <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="KUf-ig-SZJ" secondAttribute="centerX" id="8Pv-e7-rLO"/>
                             <constraint firstItem="vJt-sP-5BE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Bpt-nD-ysz"/>
                             <constraint firstItem="vjl-Dg-Bfs" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="CDd-nM-s8U"/>
                             <constraint firstAttribute="trailing" secondItem="vjl-Dg-Bfs" secondAttribute="trailing" id="ReD-eG-AT8"/>
                             <constraint firstItem="vjl-Dg-Bfs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Uln-cH-ctn"/>
                             <constraint firstItem="vjl-Dg-Bfs" firstAttribute="centerX" secondItem="vJt-sP-5BE" secondAttribute="centerX" id="Wrg-yz-uRa"/>
+                            <constraint firstAttribute="centerY" secondItem="KUf-ig-SZJ" secondAttribute="centerY" constant="22" id="myl-69-2af"/>
                             <constraint firstItem="vjl-Dg-Bfs" firstAttribute="centerX" secondItem="RR5-VO-TMp" secondAttribute="centerX" id="sgB-0f-6oS"/>
                             <constraint firstItem="vjl-Dg-Bfs" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="uAf-zb-6re"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vJt-sP-5BE" secondAttribute="bottom" constant="40" id="x97-Dz-n2g"/>
@@ -59,12 +66,19 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gKx-FA-kVx"/>
+                        <barButtonItem image="Flickr" id="u2c-xV-fEi">
+                            <connections>
+                                <action selector="pickFlickImagePressed:" destination="vXZ-lx-hvc" id="sMf-Nv-COW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="YXs-PV-xEi"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="cSy-YH-lOx"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomText" destination="vJt-sP-5BE" id="kFr-RI-liu"/>
                         <outlet property="imageToEdit" destination="vjl-Dg-Bfs" id="z40-GH-mPe"/>
+                        <outlet property="loadingActivityIndicator" destination="KUf-ig-SZJ" id="Gmj-sF-lBW"/>
                         <outlet property="takePictureButton" destination="11a-qm-iro" id="CIk-7n-4RV"/>
                         <outlet property="topText" destination="RR5-VO-TMp" id="jNk-On-yvN"/>
                     </connections>
@@ -290,6 +304,7 @@
     <resources>
         <image name="Camera" width="26" height="26"/>
         <image name="Collection" width="30" height="30"/>
+        <image name="Flickr" width="29" height="29"/>
         <image name="Folder" width="26" height="26"/>
         <image name="Table" width="30" height="30"/>
     </resources>
