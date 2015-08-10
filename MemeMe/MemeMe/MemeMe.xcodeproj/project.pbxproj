@@ -21,6 +21,7 @@
 		56A85CF21B6CCE8300B0E92C /* MemeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A85CF11B6CCE8300B0E92C /* MemeListViewController.swift */; };
 		56A85CF41B6CDD8C00B0E92C /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A85CF31B6CDD8C00B0E92C /* DisplayViewController.swift */; };
 		56A85CF61B6CE1C000B0E92C /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A85CF51B6CE1C000B0E92C /* MemeCollectionViewCell.swift */; };
+		56ED0B441B78CCEF001C0641 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56ED0B431B78CCEF001C0641 /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		56A85CF11B6CCE8300B0E92C /* MemeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeListViewController.swift; sourceTree = "<group>"; };
 		56A85CF31B6CDD8C00B0E92C /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		56A85CF51B6CE1C000B0E92C /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		56ED0B431B78CCEF001C0641 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		56A85CC71B6C29E500B0E92C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56ED0B431B78CCEF001C0641 /* ApiKeys.plist */,
 				56A85CC81B6C29E500B0E92C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A85CD21B6C29E500B0E92C /* Main.storyboard in Resources */,
+				56ED0B441B78CCEF001C0641 /* ApiKeys.plist in Resources */,
 				56A85CD71B6C29E500B0E92C /* LaunchScreen.xib in Resources */,
 				56A85CD41B6C29E500B0E92C /* Images.xcassets in Resources */,
 			);
