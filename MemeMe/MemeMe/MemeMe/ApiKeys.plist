@@ -1,0 +1,10 @@
+CTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FLIKR_PUBLIC_KEY</key>
+	<string></string>
+        <key>FLIKR_SECRET_KEY</key>
+        <string></string>
+</dict>
+</plist>
+
