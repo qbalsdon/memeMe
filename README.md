@@ -1,3 +1,5 @@
+# DEPRECATED: This project is no longer maintained
+
 # memeMe
 The MemeMe App as part of my portfolio in the completion of my iOS Nanodegree at Udacity
 
